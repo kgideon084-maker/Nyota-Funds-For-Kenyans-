@@ -250,7 +250,6 @@
     <div class="header">
         Nyota <span>Funds</span> Kenya
         <br>
-        <!-- Animated Frame with Rotating Border, Spinning Kenya Flag, and Blinking Glow Text -->
         <div class="rotating-frame-wrapper">
             <div class="rotating-frame">
                 <span class="rotating-flag">🇰🇪</span>
@@ -531,6 +530,21 @@ const BACKEND_URL = "https://nyota-backend-osjb.onrender.com";
 let userData = {};
 let selectedGrant = 0, selectedFee = 0;
 
+// Text-To-Speech Welcome Voice
+function playWelcomeSpeech() {
+    if ('speechSynthesis' in window) {
+        // Cancel any pending speech synthesis tasks
+        window.speechSynthesis.cancel();
+        
+        const message = new SpeechSynthesisUtterance("Welcome to Nyota Funds 2026 program. Proceed to apply now.");
+        message.rate = 0.95; // Speech speed
+        message.pitch = 1.0;  // Pitch depth
+        message.lang = 'en-US';
+        
+        window.speechSynthesis.speak(message);
+    }
+}
+
 // Dynamic Real-Time Clock
 function updateClock() {
     const now = new Date();
@@ -702,6 +716,8 @@ function acceptTerms() {
         err.style.display = 'block';
     } else {
         err.style.display = 'none';
+        // Play welcome audio announcement upon agreeing to terms
+        playWelcomeSpeech();
         navigateWithLoader(2);
     }
 }
