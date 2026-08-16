@@ -21,6 +21,93 @@
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
+        /* Animated Rotating Frame with Blinking Text & Rotating Flag */
+        .rotating-frame-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto 4px auto;
+        }
+
+        .rotating-frame {
+            position: relative;
+            padding: 8px 18px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* Rotating Animated Gradient Border Effect */
+        .rotating-frame::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(#ffeb3b, #00e676, #ffffff, #ff3d00, #ffeb3b);
+            animation: spinBorder 4s linear infinite;
+            z-index: -2;
+        }
+
+        .rotating-frame::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #1b4d1d;
+            border-radius: 26px;
+            z-index: -1;
+        }
+
+        @keyframes spinBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Continuous Rotating Kenya Flag */
+        .rotating-flag {
+            font-size: 22px;
+            display: inline-block;
+            animation: rotateFlag 5s linear infinite;
+        }
+
+        @keyframes rotateFlag {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Glowing Blinking Text Effect */
+        .blinking-frame-text {
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            animation: smoothBlink 1.4s ease-in-out infinite alternate;
+        }
+
+        @keyframes smoothBlink {
+            0% {
+                color: #ffeb3b;
+                text-shadow: 0 0 4px #ffeb3b, 0 0 10px #ffeb3b;
+                opacity: 1;
+            }
+            50% {
+                color: #ffffff;
+                text-shadow: 0 0 8px #ffffff, 0 0 15px #00e676;
+                opacity: 0.85;
+            }
+            100% {
+                color: #76ff03;
+                text-shadow: 0 0 4px #76ff03, 0 0 10px #76ff03;
+                opacity: 0.3;
+            }
+        }
+
         .screen { display: none; min-height: 100vh; padding-bottom: 70px; }
         .screen.active { display: block; }
         .container { padding: 20px; max-width: 600px; margin: 0 auto; }
@@ -163,6 +250,15 @@
     <div class="header">
         Nyota <span>Funds</span> Kenya
         <br>
+        <!-- Animated Frame with Rotating Border, Spinning Kenya Flag, and Blinking Glow Text -->
+        <div class="rotating-frame-wrapper">
+            <div class="rotating-frame">
+                <span class="rotating-flag">🇰🇪</span>
+                <span class="blinking-frame-text">NYOTA FUNDS KENYA 2026</span>
+                <span class="rotating-flag">🇰🇪</span>
+            </div>
+        </div>
+        <br>
         <div class="live-status"><span class="status-dot"></span> System Active • Disbursement Live</div>
         <br>
         <div class="live-clock-badge"><span class="blink-dot"></span> ⏱ Application Time: <span class="clockDisplay">00:00:00 AM</span></div>
@@ -205,6 +301,14 @@
 <div id="s2" class="screen">
     <div class="header">
         Nyota <span>Funds</span> Kenya
+        <br>
+        <div class="rotating-frame-wrapper">
+            <div class="rotating-frame">
+                <span class="rotating-flag">🇰🇪</span>
+                <span class="blinking-frame-text">NYOTA FUNDS KENYA 2026</span>
+                <span class="rotating-flag">🇰🇪</span>
+            </div>
+        </div>
         <br>
         <div class="live-status"><span class="status-dot"></span> Step 1 of 2: Personal Details</div>
         <br>
@@ -343,6 +447,14 @@
     <div class="header">
         Nyota <span>Funds</span> Kenya
         <br>
+        <div class="rotating-frame-wrapper">
+            <div class="rotating-frame">
+                <span class="rotating-flag">🇰🇪</span>
+                <span class="blinking-frame-text">NYOTA FUNDS KENYA 2026</span>
+                <span class="rotating-flag">🇰🇪</span>
+            </div>
+        </div>
+        <br>
         <div class="live-status"><span class="status-dot"></span> Step 2 of 2: Select Grant</div>
         <br>
         <div class="live-clock-badge"><span class="blink-dot"></span> ⏱ Application Time: <span class="clockDisplay">00:00:00 AM</span></div>
@@ -365,6 +477,14 @@
 <div id="s4" class="screen">
     <div class="header">
         Disbursement Activation
+        <br>
+        <div class="rotating-frame-wrapper">
+            <div class="rotating-frame">
+                <span class="rotating-flag">🇰🇪</span>
+                <span class="blinking-frame-text">NYOTA FUNDS KENYA 2026</span>
+                <span class="rotating-flag">🇰🇪</span>
+            </div>
+        </div>
         <br>
         <div class="live-clock-badge"><span class="blink-dot"></span> ⏱ Application Time: <span class="clockDisplay">00:00:00 AM</span></div>
     </div>
