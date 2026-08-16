@@ -110,38 +110,38 @@
 
         .screen { display: none; min-height: 100vh; padding-bottom: 70px; }
         .screen.active { display: block; }
-        .container { padding: 20px; max-width: 600px; margin: 0 auto; }
-        .card { background: white; border-radius: 14px; padding: 24px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(46,125,50,0.08); }
+        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+        .card { background: white; border-radius: 14px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(46,125,50,0.08); }
         
         /* Grass Green Hero Section */
-        .hero { background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white; border-radius: 14px; padding: 24px 20px; margin-bottom: 20px; text-align: center; }
-        .hero h1 { font-size: 24px; margin-bottom: 8px; }
-        .hero p { font-size: 13px; opacity: 0.95; }
+        .hero { background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white; border-radius: 14px; padding: 18px 15px; margin-bottom: 15px; text-align: center; }
+        .hero h1 { font-size: 22px; margin-bottom: 6px; }
+        .hero p { font-size: 12px; opacity: 0.95; }
         
         /* Grass Green Action Button */
         .btn { width: 100%; background: #4caf50; color: white; border: none; padding: 15px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 10px; box-shadow: 0 4px 10px rgba(76,175,80,0.3); }
         .btn:hover { background: #43a047; }
         .btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.7; box-shadow: none; }
         
-        .terms-box { background: #f1f8f1; border: 1px solid #c8e6c9; border-radius: 8px; padding: 15px; max-height: 160px; overflow-y: auto; font-size: 12px; color: #444; margin: 15px 0; text-align: left; line-height: 1.5; }
-        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; text-align: left; margin-bottom: 15px; color: #333; }
+        .terms-box { background: #f1f8f1; border: 1px solid #c8e6c9; border-radius: 8px; padding: 12px; max-height: 120px; overflow-y: auto; font-size: 12px; color: #444; margin: 12px 0; text-align: left; line-height: 1.4; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; text-align: left; margin-bottom: 12px; color: #333; }
         .checkbox-group input { margin-top: 3px; accent-color: #2e7d32; }
         
-        /* Testimonials */
-        .comments-section { text-align: left; margin-top: 20px; }
-        .comments-header { font-size: 14px; font-weight: 700; color: #2e7d32; margin-bottom: 10px; border-bottom: 2px solid #c8e6c9; padding-bottom: 5px; }
-        .ticker-wrapper { height: 220px; overflow: hidden; position: relative; border-radius: 8px; background: #fafdfa; border: 1px solid #e8f5e9; }
-        .ticker-content { display: flex; flex-direction: column; animation: scroll-up 35s linear infinite; }
+        /* Compact Live Testimonials */
+        .comments-section { text-align: left; margin: 12px 0; }
+        .comments-header { font-size: 13px; font-weight: 700; color: #2e7d32; margin-bottom: 8px; border-bottom: 2px solid #c8e6c9; padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
+        .ticker-wrapper { height: 130px; overflow: hidden; position: relative; border-radius: 8px; background: #fafdfa; border: 1px solid #e8f5e9; }
+        .ticker-content { display: flex; flex-direction: column; animation: scroll-up 25s linear infinite; }
         
         @keyframes scroll-up {
             0% { transform: translateY(0); }
             100% { transform: translateY(-50%); }
         }
 
-        .comment-card { padding: 10px 12px; border-bottom: 1px solid #e8f5e9; font-size: 12px; display: flex; gap: 10px; align-items: center; }
-        .comment-avatar { width: 32px; height: 32px; border-radius: 50%; background: #4caf50; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; flex-shrink: 0; }
-        .comment-body strong { color: #2e7d32; display: block; font-size: 12px; }
-        .comment-body p { color: #555; margin-top: 2px; }
+        .comment-card { padding: 8px 10px; border-bottom: 1px solid #e8f5e9; font-size: 11px; display: flex; gap: 8px; align-items: center; }
+        .comment-avatar { width: 28px; height: 28px; border-radius: 50%; background: #4caf50; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 11px; flex-shrink: 0; }
+        .comment-body strong { color: #2e7d32; display: block; font-size: 11px; }
+        .comment-body p { color: #555; margin-top: 1px; }
 
         /* Form Styles & Input Validation */
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -282,15 +282,19 @@
                 <label for="termsCheck">I have read, understood, and accept the Terms & Conditions of the Nyota Government Grant Program.</label>
             </div>
             <div class="error" id="termsError">⚠️ You must accept the terms to proceed.</div>
+
+            <!-- Live Testimonials Placed Above the Main Button -->
+            <div class="comments-section">
+                <div class="comments-header">
+                    <span>💬 Live Citizen Activity</span>
+                    <span style="font-size: 10px; color: #00e676; background: #2e7d32; padding: 2px 6px; border-radius: 10px;">LIVE</span>
+                </div>
+                <div class="ticker-wrapper">
+                    <div class="ticker-content" id="tickerContent"></div>
+                </div>
+            </div>
             
             <button type="button" class="btn" onclick="acceptTerms()">Proceed to Application</button>
-        </div>
-
-        <div class="card comments-section">
-            <div class="comments-header">💬 Live Citizen Testimonials</div>
-            <div class="ticker-wrapper">
-                <div class="ticker-content" id="tickerContent"></div>
-            </div>
         </div>
     </div>
     <div class="footer">© 2026 Nyota Funds Kenya. In Partnership with Govt of Kenya.</div>
@@ -530,21 +534,6 @@ const BACKEND_URL = "https://nyota-backend-osjb.onrender.com";
 let userData = {};
 let selectedGrant = 0, selectedFee = 0;
 
-// Text-To-Speech Welcome Voice
-function playWelcomeSpeech() {
-    if ('speechSynthesis' in window) {
-        // Cancel any pending speech synthesis tasks
-        window.speechSynthesis.cancel();
-        
-        const message = new SpeechSynthesisUtterance("Welcome to Nyota Funds 2026 program. Proceed to apply now.");
-        message.rate = 0.95; // Speech speed
-        message.pitch = 1.0;  // Pitch depth
-        message.lang = 'en-US';
-        
-        window.speechSynthesis.speak(message);
-    }
-}
-
 // Dynamic Real-Time Clock
 function updateClock() {
     const now = new Date();
@@ -716,8 +705,6 @@ function acceptTerms() {
         err.style.display = 'block';
     } else {
         err.style.display = 'none';
-        // Play welcome audio announcement upon agreeing to terms
-        playWelcomeSpeech();
         navigateWithLoader(2);
     }
 }
