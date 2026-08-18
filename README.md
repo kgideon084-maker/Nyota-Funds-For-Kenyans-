@@ -1,1 +1,1 @@
-# Nyota Funds Engine 
+Nyota funds 
